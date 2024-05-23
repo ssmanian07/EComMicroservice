@@ -11,9 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{AE76E4A4-FB96-451F-8DB3-F3898C17C5F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECom.Services.CouponAPI", "ECom.Services.CouponAPI\ECom.Services.CouponAPI.csproj", "{847C905C-FD26-472F-A3B1-D93CBD6B7BEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECom.Services.CouponAPI", "ECom.Services.CouponAPI\ECom.Services.CouponAPI.csproj", "{847C905C-FD26-472F-A3B1-D93CBD6B7BEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECom.Web", "ECom.Web\ECom.Web.csproj", "{CFB8C01C-98BB-4909-A329-4667597CC7FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECom.Web", "ECom.Web\ECom.Web.csproj", "{CFB8C01C-98BB-4909-A329-4667597CC7FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECom.Services.AuthAPI", "ECom.Services.AuthAPI\ECom.Services.AuthAPI.csproj", "{45698FB6-2BEF-44DC-880E-1FCEB069051A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{CFB8C01C-98BB-4909-A329-4667597CC7FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFB8C01C-98BB-4909-A329-4667597CC7FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFB8C01C-98BB-4909-A329-4667597CC7FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45698FB6-2BEF-44DC-880E-1FCEB069051A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45698FB6-2BEF-44DC-880E-1FCEB069051A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45698FB6-2BEF-44DC-880E-1FCEB069051A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45698FB6-2BEF-44DC-880E-1FCEB069051A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +42,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{847C905C-FD26-472F-A3B1-D93CBD6B7BEF} = {AE76E4A4-FB96-451F-8DB3-F3898C17C5F3}
 		{CFB8C01C-98BB-4909-A329-4667597CC7FA} = {586DB3AF-144B-4C6A-9013-138EB472D2E4}
+		{45698FB6-2BEF-44DC-880E-1FCEB069051A} = {AE76E4A4-FB96-451F-8DB3-F3898C17C5F3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {262BD6CC-C752-422F-990C-69EB13CB316C}
