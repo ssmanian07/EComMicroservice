@@ -14,6 +14,7 @@
         public static string AuthAPIBase { get; set; }
         public const string RoleAdmin = "ADMIN";
         public const string RoleCustomer = "CUSTOMER";
+        public const string TokenCookie = "JwtToken";
 
     }
 }

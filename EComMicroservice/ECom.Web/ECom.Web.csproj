@@ -8,6 +8,11 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.1.2" />
   </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="if exist &quot;$(TargetPath).locked&quot; del &quot;$(TargetPath).locked&quot;&#xD;&#xA;if exist &quot;$(TargetPath)&quot; if not exist &quot;$(TargetPath).locked&quot; move &quot;$(TargetPath)&quot; &quot;$(TargetPath).locked&quot;" />
+  </Target>
 
 </Project>
