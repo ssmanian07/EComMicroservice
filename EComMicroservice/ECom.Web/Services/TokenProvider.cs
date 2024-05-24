@@ -12,7 +12,7 @@ namespace ECom.Web.Services
             _contextAccessor = contextAccessor;
         }
 
-        public void ClearTokn()
+        public void ClearToken()
         {
             _contextAccessor.HttpContext?.Response.Cookies.Delete(SD.TokenCookie);
         }

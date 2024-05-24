@@ -63,27 +63,29 @@ namespace ECom.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(RegisterationRequestDto requestDto)
         {
-            ResponseDto result = await _authService.RegisterAsync(requestDto);
-            ResponseDto assingRole;
-
-            if (result != null && result.IsSuccess)
+            if (ModelState.IsValid)
             {
-                if (string.IsNullOrEmpty(requestDto.Role))
+                ResponseDto response = await _authService.RegisterAsync(requestDto);
+                ResponseDto assingRole;
+
+                if (response != null && response.IsSuccess)
                 {
-                    requestDto.Role = SD.RoleCustomer;
+                    if (string.IsNullOrEmpty(requestDto.Role))
+                    {
+                        requestDto.Role = SD.RoleCustomer;
+                    }
+                    assingRole = await _authService.AssignRoleAsync(requestDto);
+                    if (assingRole != null && assingRole.IsSuccess)
+                    {
+                        TempData["success"] = "Registration Successful";
+                        return RedirectToAction(nameof(Login));
+                    }
                 }
-                assingRole = await _authService.AssignRoleAsync(requestDto);
-                if (assingRole != null && assingRole.IsSuccess)
+                else
                 {
-                    TempData["success"] = "Registration Successful";
-                    return RedirectToAction(nameof(Login));
+                    TempData["error"] = response.Message;
                 }
             }
-            else
-            {
-                TempData["error"] = result.Message;
-            }
-
             var roleList = new List<SelectListItem>()
             {
                 new SelectListItem{Text=SD.RoleAdmin,Value=SD.RoleAdmin},
@@ -110,6 +112,13 @@ namespace ECom.Web.Controllers
 
             var principal = new ClaimsPrincipal(identity);
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            _tokenProvider.ClearToken();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
